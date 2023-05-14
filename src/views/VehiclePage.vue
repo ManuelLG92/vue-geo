@@ -5,7 +5,7 @@ import { fetcher } from '@/api/fetchUtil'
 const props = defineProps({
   id: String
 })
-interface InterfaceX {
+interface Vehicle {
   id: string
   locationId: string
   numberPlate: string
@@ -20,7 +20,7 @@ interface InterfaceX {
 const url = `vehicles/${props.id}`
 
 const { isLoading, isFetching, isError, data, error } = get(url, fetcher(url))
-const vehicles: { data: InterfaceX } = data
+const vehicles: { data: Vehicle } = data
 </script>
 
 <template>
@@ -28,7 +28,7 @@ const vehicles: { data: InterfaceX } = data
   <div v-if="isFetching">Fetching..</div>
   <div v-if="isLoading">Loading..</div>
   <div v-if="isError">Error {{ error }}</div>
-  <div v-if="vehicles.data">
+  <div v-if="vehicles?.data">
     <div>
       <p>id: {{ vehicles?.data }}</p>
       <p>locationId: {{ vehicles.data.locationId }}</p>
