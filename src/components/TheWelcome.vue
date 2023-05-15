@@ -1,5 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppLayout from '@/components/AppLayout.vue'
+</script>
 
 <template>
-  <h1>Welcome</h1>
+  <AppLayout>
+    <template v-slot:content>
+      <h1>Welcome</h1>
+    </template>
+  </AppLayout>
 </template>
