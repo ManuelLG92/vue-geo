@@ -4,7 +4,8 @@ const get = (queryKey: string, url: () => Promise<Response>) => {
   return useQuery({
     queryKey: [queryKey],
     queryFn: url,
-    cacheTime: 300000 // ms
+    cacheTime: 300000, // ms
+    refetchOnWindowFocus: false
   })
 }
 
