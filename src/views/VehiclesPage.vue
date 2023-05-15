@@ -2,7 +2,8 @@
 import { get } from '@/api/queryLibrary'
 import { fetcher } from '@/api/fetchUtil'
 import { routeNames } from '@/router'
-interface InterfaceX {
+import AppLayout from '@/components/AppLayout.vue'
+interface Vehicle {
   id: string
   locationId: string
   vin: string
@@ -18,44 +19,83 @@ interface InterfaceX {
 const url = 'vehicles'
 
 const { isLoading, isFetching, isError, data, error } = get('vehicles', fetcher(url))
-const vehicles: { data: Array<InterfaceX> } = data
+const vehicles: { data: Array<Vehicle> } = data
 </script>
 
 <template>
-  <p>haha</p>
-  <div v-if="isFetching">Fetching..</div>
-  <div v-if="isLoading">Loading..</div>
-  <div v-if="isError">Error {{ error }}</div>
-  <div v-for="(vehicle, key) in vehicles?.data" :key="key">
-    <div>
-      <p>id: {{ vehicle.id }}</p>
-      <p>vin: {{ vehicle.vin }}</p>
-      <p>locationId: {{ vehicle.locationId }}</p>
-      <p>numberPlate: {{ vehicle.numberPlate }}</p>
-      <router-link
-        :to="{ name: routeNames.vehicles.byId, params: { id: vehicle.id } }"
-        title="Click to see detailed info"
-        >Click to see detailed info</router-link
-      >
-      <div>
-        <p>Position</p>
-        <ul>
-          <li>
-            <p>latitude: {{ vehicle.position.latitude }}</p>
-          </li>
-          <li>
-            <p>longitude: {{ vehicle.position.longitude }}</p>
-          </li>
-        </ul>
+  <AppLayout>
+    <template v-slot:content>
+      <div v-if="isFetching">Fetching..</div>
+      <div v-if="isLoading">Loading..</div>
+      <div v-if="isError">Error {{ error }}</div>
+      <h1 class="text-center">Vehicles</h1>
+      <div class="table-wrapper text-center ms-auto">
+        <table class="table table-bordered table-responsive">
+          <thead class="table">
+            <tr>
+              <th>Id</th>
+              <th>Location Id</th>
+              <th>Number Plate</th>
+              <th>Position</th>
+              <th>Fuel</th>
+              <th>Model</th>
+              <th>Polygon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(vehicle, key) in vehicles?.data" :key="key">
+              <th>
+                <router-link
+                  :to="{ name: routeNames.vehicles.byId, params: { id: vehicle.id } }"
+                  title="Click to see detailed info"
+                  >{{ vehicle.id }}</router-link
+                >
+              </th>
+              <th>
+                {{ vehicle.locationId }}
+              </th>
+              <th>
+                {{ vehicle.numberPlate }}
+              </th>
+              <div>
+                <th>
+                  <ul>
+                    <li>
+                      latitude:
+                      {{ vehicle.position.latitude }}
+                    </li>
+                    <li>
+                      longitude:
+                      {{ vehicle.position.longitude }}
+                    </li>
+                  </ul>
+                </th>
+              </div>
+              <th>
+                {{ vehicle.fuel }}
+              </th>
+              <th>
+                {{ vehicle.model }}
+              </th>
+              <th>
+                {{ vehicle.polygon.length ? vehicle.polygon : 'N/A' }}
+              </th>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <p>fuel: {{ vehicle.fuel }}</p>
-      <p>model: {{ vehicle.model }}</p>
-      <p>polygon: {{ vehicle.polygon }}</p>
-    </div>
-    <br />
-    <hr />
-    <br />
-  </div>
+    </template>
+  </AppLayout>
 </template>
 
-<style scoped></style>
+<style scoped>
+.table-wrapper {
+  max-height: 75vh;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+li {
+  text-align: left;
+}
+</style>
