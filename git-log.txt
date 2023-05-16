@@ -1,0 +1,125 @@
+commit c4975f6f74559a092894eed8536e0f481c45f917
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 11:41:05 2023 +0200
+
+    feat:
+    - Add README.MD
+
+commit 0afed535a126643d7238c5c47e5a27e4ac5d5131
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 11:40:45 2023 +0200
+
+    feat:
+    - Add not found page
+
+commit 3c184bf759687f29c06bf040db0955cc08033e7f
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 10:48:41 2023 +0200
+
+    feat:
+    - handle errors
+    - remove dummy component
+
+commit 9da65b649047253330c2e50bf0c6a25860366058
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:35:35 2023 +0200
+
+    feat:
+    - library settings
+
+commit 4dda012c6ca6116c71ef684998ed5e3a44e2f850
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:34:43 2023 +0200
+
+    feat:
+    - Add cache time
+
+commit e11c64fabd6251b8de8a17cb348ed33bcca88701
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:31:57 2023 +0200
+
+    feat:
+    - Keep folder
+
+commit a8e03c80e7e94c000075b1b0778a0084c5a821e5
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:31:35 2023 +0200
+
+    feat:
+    - Delete unused components and icons
+
+commit 721ede219590902c4513d1b515d2432c3728ecbe
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:31:15 2023 +0200
+
+    feat:
+    - Delete about route
+
+commit f1db426794b765ce481c526e43f0dae33d260da5
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:31:01 2023 +0200
+
+    feat:
+    - Add layout to welcome component
+
+commit 6f5209d072016bd1b2bb3925ffdd772b0e4689ed
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:27:35 2023 +0200
+
+    feat:
+    - Reset home page.
+
+commit 265bdf59bc3bf98000db75dc1ddbd21894dcd71b
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:27:07 2023 +0200
+
+    feat:
+    - Refactor Vehicles pages
+
+commit 06a826a75241928452ea3fd0a2b1f3841a4133d3
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:26:46 2023 +0200
+
+    feat:
+    - Reset default styles
+
+commit 15eae0457d41be1b6cecd0acc13b7dff657f370d
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:26:23 2023 +0200
+
+    feat:
+    - Add Layout
+
+commit aede86efa2f9f6a43265e8b9dde022136f2788d7
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:26:03 2023 +0200
+
+    feat:
+    - Add bootstrap for styles
+    - Delete global state management
+
+commit 6c3795bd14ecf09e9959917ab9ab26cebe995df7
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Tue May 16 01:25:52 2023 +0200
+
+    feat:
+    - Add bootstrap for styles
+    - Delete global state management
+
+commit d38cd7dc6a2c6c9711757f8d1657b8b0b6aec1c2
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Mon May 15 00:07:10 2023 +0200
+
+    fix: Add conditional on undefined prop accessing
+
+commit e4feff90e549038a3eede175fd7e9c35d271e574
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Mon May 15 00:06:37 2023 +0200
+
+    feat: Virtualize the front-end
+
+commit cb90c98acc7f4a9c20a4e2b6f621f850ca8fc916
+Author: manuel.leon <manuel.leon@wefox.com>
+Date:   Sun May 14 02:07:33 2023 +0200
+
+    feat: pages without styles
