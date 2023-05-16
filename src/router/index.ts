@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+const NotFoundView = () => import('@/views//NotFoundView.vue')
 const HomeView = () => import('@/views/HomeView.vue')
 const VehiclesPage = () => import('@/views/VehiclesPage.vue')
 const VehiclePage = () => import('@/views/VehiclePage.vue')
@@ -44,6 +45,11 @@ const router = createRouter({
       name: routeNames.polygons.byId,
       component: PolygonPage,
       props: true
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'ErrorView',
+      component: NotFoundView
     }
   ]
 })
