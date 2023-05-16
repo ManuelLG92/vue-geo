@@ -2,37 +2,66 @@
 import { get } from '@/api/queryLibrary'
 import { fetcher } from '@/api/fetchUtil'
 import { routeNames } from '@/router'
+import AppLayout from '@/components/AppLayout.vue'
 interface Polygons {
-  id: string
-  vehicles: Array<string>
+  status?: string
+  message?: string
+  context?: string
+  data: Array<{
+    id: string
+    vehicles: Array<string>
+  }>
 }
 const url = 'polygons/vehicles'
 
-const { isLoading, isFetching, isError, data, error } = get(url, fetcher(url))
-const vehicles: { data: Array<Polygons> } = data
+const { isLoading, isFetching, isError, data } = get(url, fetcher(url))
+const polygons: Polygons = data
 </script>
 
 <template>
-  <p>Polygons</p>
-  <div v-if="isFetching">Fetching...</div>
-  <div v-if="isLoading">Loading...</div>
-  <div v-if="isError">Error {{ error }}</div>
-  <div v-for="(vehicle, key) in vehicles.data" :key="key">
-    <div>
-      <p>id: {{ vehicle.id }}</p>
-      <router-link
-        :to="{ name: routeNames.polygons.byId, params: { id: vehicle.id } }"
-        title="Click to see detailed info"
-        >Click to see detailed info</router-link
-      >
-      <div v-for="(vin, key) in vehicle.vehicles" :key="key">
-        <p>Vehicle: {{ vin }}</p>
+  <AppLayout>
+    <template v-slot:content>
+      <h1 class="text-center">Polygons</h1>
+      <div v-if="isFetching">Fetching...</div>
+      <div v-if="isLoading">Loading...</div>
+      <div v-if="isError" class="text-center">
+        <h1>We're having some problems.. Try again later</h1>
       </div>
-    </div>
-    <br />
-    <hr />
-    <br />
-  </div>
+
+      <div class="text-center" v-if="polygons?.status > 399">
+        <h2>Code: {{ polygons.status }} - {{ polygons.context }}</h2>
+        <h3>{{ polygons.message }}</h3>
+      </div>
+      <div v-else>
+        <div class="table-wrapper text-center ms-auto">
+          <table class="table table-bordered table-responsive">
+            <thead class="table">
+              <tr>
+                <th>Id</th>
+                <th>Vehicles id</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(polygon, key) in polygons?.data" :key="key">
+                <th>
+                  <RouterLink
+                    :to="{ name: routeNames.polygons.byId, params: { id: polygon.id } }"
+                    title="Click to see detailed info"
+                    >{{ polygon.id }}</RouterLink
+                  >
+                </th>
+                <th>
+                  <ul v-for="(vin, key) in polygon.vehicles" :key="key">
+                    <li>Vehicle: {{ vin }}</li>
+                  </ul>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </template>
+  </AppLayout>
 </template>
 
 <style scoped></style>

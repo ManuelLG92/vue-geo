@@ -1,11 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import PolygonsPage from '@/views/PolygonsPage.vue'
-import PolygonPage from '@/views/PolygonPage.vue'
-import VehiclePage from '@/views/VehiclePage.vue'
-// import VehiclesPage from '@/views/VehiclesPage.vue'
-
+const HomeView = () => import('@/views/HomeView.vue')
 const VehiclesPage = () => import('@/views/VehiclesPage.vue')
+const VehiclePage = () => import('@/views/VehiclePage.vue')
+const PolygonPage = () => import('@/views/PolygonPage.vue')
+const PolygonsPage = () => import('@/views/PolygonsPage.vue')
 const routeNames = {
   home: 'home',
   polygons: {
